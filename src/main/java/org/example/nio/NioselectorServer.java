@@ -22,6 +22,7 @@ public class NioselectorServer {
         SelectionKey selectionKey = serverChannel.register(selector, SelectionKey.OP_ACCEPT);
         System.out.println("服务启动成功");
         while(true){
+            //循环事件，没有事件就阻塞
             selector.select();
             Set<SelectionKey> keySet =  selector.selectedKeys();
             Iterator<SelectionKey> iterator = keySet.iterator();
